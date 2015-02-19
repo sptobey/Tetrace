@@ -1,4 +1,4 @@
-hristopher Audette
+Christopher Audette
 Matthew Binsfeld
 Ryan Denzel
 Samuel P. Tobey
