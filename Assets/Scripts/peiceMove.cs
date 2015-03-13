@@ -11,6 +11,7 @@ public class peiceMove : MonoBehaviour
 	private bool keydown = false;
 	public float smooth = 2.0F;
 	public float tiltAngle = 60.0F;
+	public float zDragShift = -1.50F;
 
 	void Update() {
 		float tiltAroundX = Input.GetAxis("Vertical") * tiltAngle;
@@ -23,7 +24,7 @@ public class peiceMove : MonoBehaviour
 		keydown = true;
 		screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
 		
-		offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
+		offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z - zDragShift));
 		if (Input.GetKeyDown(KeyCode.A)){
 			float tiltAroundZ = Input.GetAxis("Horizontal") * tiltAngle;
 			Quaternion target = Quaternion.Euler(tiltAroundZ, 0, 0);
@@ -45,7 +46,7 @@ public class peiceMove : MonoBehaviour
 	{
 		keydown = false;
 		Vector3 temp;
-		temp = new Vector3(Mathf.Round(transform.position.x),Mathf.Round(transform.position.y),transform.position.z);
+		temp = new Vector3(Mathf.Round(transform.position.x),Mathf.Round(transform.position.y),transform.position.z - zDragShift);
 		transform.position = temp;
 	}
 	
