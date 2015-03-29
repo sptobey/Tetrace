@@ -11,7 +11,7 @@ public class peiceMove : MonoBehaviour
 
 	public float zDragShift = -1.50F;
 
-	public Rigidbody rb;
+	private Rigidbody rb;
 
 	void Start() {
 		rb = GetComponent<Rigidbody>();
@@ -28,6 +28,9 @@ public class peiceMove : MonoBehaviour
 
 		Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z - zDragShift);
 		offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(mousePos);
+
+		// Set current Piece
+		currentPiece.setCurrentPiece(gameObject);
 	}
 	
 	void OnMouseDrag()

@@ -31,7 +31,7 @@ public class gridPiece : MonoBehaviour {
 	}
 
 	public void notifyGrid() {
-		gameGrid.setGridPiece(transform, isOccupied);
+		gameGrid.setGridPiece(transform, getIsOccupied());
 	}
 	
 	void OnCollisionEnter(Collision collision) {
