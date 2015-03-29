@@ -11,6 +11,12 @@ public class peiceMove : MonoBehaviour
 
 	public float zDragShift = -1.50F;
 
+	public Rigidbody rb;
+
+	void Start() {
+		rb = GetComponent<Rigidbody>();
+	}
+
 	void Update() {
 		
 
@@ -18,10 +24,10 @@ public class peiceMove : MonoBehaviour
 	
 	void OnMouseDown()
 	{
-
 		screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
-		
-		offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z - zDragShift));
+
+		Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z - zDragShift);
+		offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(mousePos);
 	}
 	
 	void OnMouseDrag()
@@ -30,13 +36,11 @@ public class peiceMove : MonoBehaviour
 		
 		Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
 		transform.position = curPosition;
-		
 	}
 
 	void OnMouseUp()
 	{
-		Vector3 temp;
-		temp = new Vector3(Mathf.Round(transform.position.x),Mathf.Round(transform.position.y),transform.position.z - zDragShift);
+		Vector3 temp = new Vector3(Mathf.Round(transform.position.x),Mathf.Round(transform.position.y),transform.position.z - zDragShift);
 		transform.position = temp;
 	}
 	
