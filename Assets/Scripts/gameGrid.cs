@@ -4,8 +4,9 @@ using System.Collections.Generic;
 
 public class gameGrid : MonoBehaviour {
 
-	private Dictionary<Transform, bool> gameBoard = new Dictionary<Transform, bool>();
+	private static Dictionary<Transform, bool> gameBoard = new Dictionary<Transform, bool>();
 	private bool isFilled = false;
+	public float waitTime = 0.5f;
 
 	void Start () {
 		gameBoard.Add(transform, false);
@@ -15,15 +16,16 @@ public class gameGrid : MonoBehaviour {
 	}
 
 	void Update () {
-	
-	}
-	
-	public void gridWinCheck() {
-		isFilled = isGridFilled();
-		gameWin(isFilled);
+		if(Input.GetButtonUp("Fire1")) {
+			StartCoroutine(gridWinCheck(waitTime));
+		}
 	}
 
-	private bool isGridFilled() {
+	public static void setGridPiece(Transform tform, bool isOccupied) {
+		gameBoard[tform] = isOccupied;
+	}
+
+	private void checkGridFilled() {
 		bool filledChecker = true;
 		foreach(KeyValuePair<Transform, bool> child in gameBoard) {
 			if(child.Value == true) {
@@ -33,7 +35,7 @@ public class gameGrid : MonoBehaviour {
 				break;
 			}
 		}
-		return filledChecker;
+		isFilled = filledChecker;
 	}
 
 	private void gameWin(bool boardFilled) {
@@ -44,4 +46,9 @@ public class gameGrid : MonoBehaviour {
 		}
 	}
 
+	IEnumerator gridWinCheck(float time) {
+		yield return new WaitForSeconds(time);
+		checkGridFilled();
+		gameWin(isFilled);
+	}
 }
