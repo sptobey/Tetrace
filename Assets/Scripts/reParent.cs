@@ -20,12 +20,12 @@ public class reParent : MonoBehaviour {
 				}
 		foreach (Transform child in transform.parent) {
 			Debug.Log(child.name);
-			if(child != transform){
+			if(child.gameObject != transform.gameObject){
 				Debug.Log("good Things");
 				child.parent = gameObject.transform;
 			}
 		}
-		Parent.SetParent(gameObject.transform);
+		Parent.parent = gameObject.transform;
 
 	}
 }
