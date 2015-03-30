@@ -43,7 +43,7 @@ public class gridPiece : MonoBehaviour {
 		notifyGrid();
 	}
 
-	void OnCollsionExit(Collision collision) {
+	void OnCollisionExit(Collision collision) {
 		Debug.Log("Grid piece at (" + 
 		          transform.position.x + ", " + transform.position.y 
 		          + ") Stopped Colliding with " +
