@@ -2,29 +2,31 @@
 using System.Collections;
 
 public class reParent : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
 	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 	void OnMouseDown(){
 		//Debug.Log ("I am alive");
 		Transform Parent = transform.parent;
 		if (transform.parent != null) {
+			int siblings_size = Parent.childCount;
+			Transform[] siblings = new Transform[siblings_size];
+			int i = 0;
 			foreach (Transform child in transform.parent) {
 				Debug.Log (child.name);
-				if (child.name != transform.name) {
+				siblings[i] = child;
+				i++;
+				//if (child.name != transform.name) {
 					//Debug.Log ("good Things");
+					//child.parent = gameObject.transform;
+				//}
+			}
+			for(i = 0; i < siblings_size; i++){
+				Transform child = siblings[i];
+				if(child.name != transform.name){
 					child.parent = gameObject.transform;
 				}
 			}
 			transform.parent = null;
-			Parent.parent = gameObject.transform;
+			Parent.parent = transform;
 		}
 
 	}
