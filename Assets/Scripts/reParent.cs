@@ -15,17 +15,16 @@ public class reParent : MonoBehaviour {
 	void OnMouseDown(){
 		Debug.Log ("I am alive");
 		Transform Parent = transform.parent;
-		if (transform.parent == null) {
-						Debug.Log ("I am a dummy");
+		if (transform.parent != null) {
+			foreach (Transform child in transform.parent) {
+				Debug.Log (child.name);
+				if (child.gameObject != transform.gameObject) {
+					Debug.Log ("good Things");
+					child.parent = gameObject.transform;
 				}
-		foreach (Transform child in transform.parent) {
-			Debug.Log(child.name);
-			if(child.gameObject != transform.gameObject){
-				Debug.Log("good Things");
-				child.parent = gameObject.transform;
 			}
+			Parent.parent = gameObject.transform;
 		}
-		Parent.parent = gameObject.transform;
 
 	}
 }
