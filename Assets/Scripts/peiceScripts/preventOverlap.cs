@@ -16,12 +16,16 @@ public class preventOverlap : MonoBehaviour {
 		this.isSelected = isSelected;
 
 		// Set children if any
-		if(transform.parent == null) {
-			foreach(Transform child in transform) {
-				preventOverlap childOverlapScript = child.gameObject.GetComponent<preventOverlap>();
-				childOverlapScript.setSelected(isSelected);
-			}
-		}
+		if (transform.parent == null) {
+						foreach (Transform child in transform) {
+								preventOverlap childOverlapScript = child.gameObject.GetComponent<preventOverlap> ();
+								if(childOverlapScript.getSelected() != isSelected)
+									childOverlapScript.setSelected (isSelected);
+						}
+				} else {
+						preventOverlap parentOverlapScript = transform.parent.GetComponent<preventOverlap> ();
+						parentOverlapScript.setSelected (isSelected);
+				}
 	}
 
 	public bool getSelected() { 
