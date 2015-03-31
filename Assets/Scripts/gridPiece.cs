@@ -35,19 +35,19 @@ public class gridPiece : MonoBehaviour {
 	}
 	
 	void OnCollisionEnter(Collision collision) {
-		Debug.Log("Grid piece at (" + 
+		/*Debug.Log("Grid piece at (" + 
 		          transform.position.x + ", " + transform.position.y 
 		          + ") Collided with " +
-		          collision.transform.name);
+		          collision.transform.name);*/
 		setIsOccupied(true);
 		notifyGrid();
 	}
 
 	void OnCollisionExit(Collision collision) {
-		Debug.Log("Grid piece at (" + 
+		/*Debug.Log("Grid piece at (" + 
 		          transform.position.x + ", " + transform.position.y 
 		          + ") Stopped Colliding with " +
-		          collision.transform.name);
+		          collision.transform.name);*/
 		setIsOccupied(false);
 		notifyGrid();
 	}
