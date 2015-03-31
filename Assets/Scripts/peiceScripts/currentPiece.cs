@@ -20,11 +20,10 @@ public static class currentPiece {
 			preventOverlap newOverlapScript = tetrisPiece.GetComponent<preventOverlap>();
 			newOverlapScript.setSelected(true);
 		}
-		//Debug.Log("Selected Piece: " + currentPiece.tetrisPiece);
+
 	}
 
 	public static GameObject getCurrentPiece() {
-		//Debug.Log("Selected Piece: " + currentPiece.tetrisPiece);
 		return currentPiece.tetrisPiece;
 	}
 }
