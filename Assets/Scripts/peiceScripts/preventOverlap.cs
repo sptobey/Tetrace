@@ -14,6 +14,14 @@ public class preventOverlap : MonoBehaviour {
 
 	public void setSelected(bool isSelected) {
 		this.isSelected = isSelected;
+
+		// Set children if any
+		if(transform.parent == null) {
+			foreach(Transform child in transform) {
+				preventOverlap childOverlapScript = child.gameObject.GetComponent<preventOverlap>();
+				childOverlapScript.setSelected(isSelected);
+			}
+		}
 	}
 
 	public bool getSelected() { 
@@ -36,12 +44,21 @@ public class preventOverlap : MonoBehaviour {
 		          ".  Buffer: " + bufferLayer +
 		          ".  Self: " + selfLayer);
 		*/
-
-		// isSelected is set from pieceMove.cs via currentPiece.cs
+			
+		// isSelected is set from pieceMove.cs via mouse-clicks in currentPiece.cs
 		if((collision.transform.gameObject.layer == selfLayer && isSelected) ||
 		   (collision.transform.gameObject.layer == bufferLayer && isSelected)) {
-			transform.position = bankPostion;
-			transform.rotation = bankRotation;
+			if(transform.parent != null) {
+				preventOverlap parentOverlapScript = transform.parent.gameObject.GetComponent<preventOverlap>();
+				parentOverlapScript.revertPosition();
+			} else {
+				revertPosition();
+			}
 		}
+	}
+
+	void revertPosition() {
+		transform.position = bankPostion;
+		transform.rotation = bankRotation;
 	}
 }

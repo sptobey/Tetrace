@@ -4,14 +4,13 @@ using System.Collections;
 public class reParent : MonoBehaviour {
 	
 	void OnMouseDown(){
-		//Debug.Log ("I am alive");
 		Transform Parent = transform.parent;
-		if (transform.parent != null) {
+		if (Parent != null) {
 			int siblings_size = Parent.childCount;
 			Transform[] siblings = new Transform[siblings_size];
 			int i = 0;
 			foreach (Transform child in transform.parent) {
-				Debug.Log (child.name);
+				//Debug.Log (child.name);
 				siblings[i] = child;
 				i++;
 				//if (child.name != transform.name) {
