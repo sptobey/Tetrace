@@ -3,22 +3,18 @@ using System.Collections;
 
 //[RequireComponent(typeof(MeshCollider))]
 
-public class peiceMove : MonoBehaviour 
-{
-	
+public class peiceMove : MonoBehaviour {
+
 	private Vector3 screenPoint;
 	private Vector3 offset;
 
 	public float zDragShift = -1.50F;
 
-	private Rigidbody rb;
-
 	void Start() {
-		rb = GetComponent<Rigidbody>();
+
 	}
 
 	void Update() {
-		
 
 	}
 	

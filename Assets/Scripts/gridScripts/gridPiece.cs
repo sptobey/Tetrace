@@ -4,12 +4,10 @@ using System.Collections;
 public class gridPiece : MonoBehaviour {
 
 	private bool isOccupied;
-	private int layerMask;
 	public float sphereRadius = 0.25f;
 
 	void Start () {
 		isOccupied = false;
-		layerMask = LayerMask.GetMask("TetrisPiece");
 	}
 
 	public bool getIsOccupied() {
