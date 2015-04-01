@@ -19,18 +19,26 @@ public class gridPiece : MonoBehaviour {
 		this.isOccupied = isOccupied;
 	}
 
-	public void notifyGrid() {
-		gameGrid.setGridPiece(transform, getIsOccupied());
+	public void notifyGrid(bool occupied) {
+		gameGrid.setGridPiece(transform.position, occupied);
 	}
 	
 	void OnCollisionEnter(Collision collision) {
+		Debug.Log("Grid piece at (" +
+		          transform.position.x + ", " + transform.position.y +
+		          ") Collided with " +
+		          collision.transform.name);
 		setIsOccupied(true);
-		notifyGrid();
+		notifyGrid(true);
 	}
 
 	void OnCollisionExit(Collision collision) {
+		Debug.Log("Grid piece at (" +
+		          transform.position.x + ", " + transform.position.y +
+		          ") Stopped colliding with " +
+		          collision.transform.name);
 		setIsOccupied(false);
-		notifyGrid();
+		notifyGrid(false);
 	}
 
 	/*
