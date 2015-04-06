@@ -10,4 +10,13 @@ public class UIManager : MonoBehaviour {
 	public void Reset() {
 		Application.LoadLevel (Application.loadedLevel);
 	}
+	public void Classic() {
+		Application.LoadLevel (1);
+	}
+	public void Marathon(){
+		Application.LoadLevel (3);
+	}
+	public void Insruc() {
+		Application.LoadLevel (2);
+	}
 }
