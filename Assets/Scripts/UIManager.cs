@@ -19,4 +19,7 @@ public class UIManager : MonoBehaviour {
 	public void Insruc() {
 		Application.LoadLevel (2);
 	}
+	public void Level1(){
+		Application.LoadLevel (4);
+	}
 }
