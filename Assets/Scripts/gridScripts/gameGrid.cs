@@ -59,7 +59,7 @@ public class gameGrid : MonoBehaviour {
 		}
 	}
 
-	void gridWinCheck() {
+	private void gridWinCheck() {
 		checkGridFilled();
 		gameWin();
 	}
