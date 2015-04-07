@@ -51,7 +51,7 @@ public class gameGrid : MonoBehaviour {
 	private void gameWin() {
 		if(isFilled) {
 			Debug.Log("Board is Full.");
-			//PlayerPrefs.SetString("Level" + (Application.loadedLevel), "Tetrace");
+			PlayerPrefs.SetString("Level" + (Application.loadedLevel - 2), "Tetrace");
 			//Application.LoadLevel (Application.loadedLevel + 1);
 			win = true;
 		} else {

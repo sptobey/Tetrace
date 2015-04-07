@@ -22,4 +22,8 @@ public class UIManager : MonoBehaviour {
 	public void Level1(){
 		Application.LoadLevel (4);
 	}
+	public void eraseAllData() {
+		PlayerPrefs.DeleteAll();
+		Application.LoadLevel(Application.loadedLevel);
+	}
 }
