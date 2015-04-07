@@ -52,7 +52,7 @@ public class preventOverlap : MonoBehaviour {
 		}
 	}
 
-	void revertPosition() {
+	public void revertPosition() {
 		transform.position = bankPostion;
 		transform.rotation = bankRotation;
 	}
