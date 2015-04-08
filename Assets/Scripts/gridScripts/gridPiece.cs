@@ -5,8 +5,11 @@ public class gridPiece : MonoBehaviour {
 
 	private bool isOccupied;
 	public float sphereRadius = 0.25f;
+	// The gameGrid script chould be on the parent object.
+	private gameGrid theGameBoard;
 
 	void Start () {
+		theGameBoard = GetComponentInParent<gameGrid>();
 		isOccupied = false;
 	}
 
@@ -18,7 +21,7 @@ public class gridPiece : MonoBehaviour {
 	}
 
 	public void notifyGrid(bool occupied) {
-		gameGrid.setGridPiece(transform.position, occupied);
+		theGameBoard.setGridPiece(transform.position, occupied);
 	}
 	
 	void OnCollisionEnter(Collision collision) {
