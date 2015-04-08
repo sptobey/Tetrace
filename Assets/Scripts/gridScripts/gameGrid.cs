@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class gameGrid : MonoBehaviour {
 
-	private static Dictionary<Vector3, bool> gameBoard = new Dictionary<Vector3, bool>();
+	private Dictionary<Vector3, bool> gameBoard = new Dictionary<Vector3, bool>();
 	private bool isFilled = false;
 	public float checkWinEverySeconds = 2.0f;
 	private bool isChecking = false;
@@ -31,7 +31,7 @@ public class gameGrid : MonoBehaviour {
 		*/
 	}
 
-	public static void setGridPiece(Vector3 gridPiecePos, bool isOccupied) {
+	public void setGridPiece(Vector3 gridPiecePos, bool isOccupied) {
 		gameBoard[gridPiecePos] = isOccupied;
 	}
 
