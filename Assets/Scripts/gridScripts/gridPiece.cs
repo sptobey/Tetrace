@@ -5,7 +5,7 @@ public class gridPiece : MonoBehaviour {
 
 	private bool isOccupied;
 	public float sphereRadius = 0.25f;
-	// The gameGrid script chould be on the parent object.
+	// The gameGrid script should be on the parent object.
 	private gameGrid theGameBoard;
 
 	void Start () {
