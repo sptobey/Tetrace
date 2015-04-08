@@ -46,13 +46,17 @@ public class gridPiece : MonoBehaviour {
 		notifyGrid(false);
 	}
 
-	/*
+
 	void OnCollisionStay(Collision collision) {
+		/*
 		Debug.Log("Grid piece at (" + 
 		          transform.position.x + ", " + transform.position.y 
 		          + ") is Colliding with " +
 		          collision.transform.name);
+		*/
+		setIsOccupied(true);
+		notifyGrid(true);
 	}
-	*/
+
 
 }
