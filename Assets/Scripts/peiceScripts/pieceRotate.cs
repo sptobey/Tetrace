@@ -42,7 +42,7 @@ public class pieceRotate : MonoBehaviour {
 		var angle = transform.eulerAngles;
 		Quaternion fromAngle = transform.rotation ;
 		Quaternion toAngle = Quaternion.Euler(transform.eulerAngles + byAngles) ;
-		for(float t = 0f ; t < 1f ; t += Time.deltaTime/inTime * 3)
+		for(float t = 0f ; t < 1f ; t += Time.deltaTime/inTime * 5)
 		{
 			transform.rotation = Quaternion.Lerp(fromAngle, toAngle, t) ;
 			angle = transform.eulerAngles;

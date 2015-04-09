@@ -7,10 +7,12 @@ public class peiceMove : MonoBehaviour {
 
 	private Vector3 screenPoint;
 	private Vector3 offset;
+    private GameObject grid;
 
 	public float zDragShift = -1.50F;
 
 	void Start() {
+        grid = GameObject.Find("grid");
 
 	}
 
@@ -41,6 +43,14 @@ public class peiceMove : MonoBehaviour {
 	{
 		Vector3 temp = new Vector3(Mathf.Round(transform.position.x),Mathf.Round(transform.position.y),transform.position.z - zDragShift);
 		transform.position = temp;
+        StartCoroutine(SendWinCheck());
 	}
+    
+    IEnumerator SendWinCheck()
+    {
+        yield return new WaitForSeconds(1);
+        grid.SendMessage("gridWinCheck");
+        Debug.Log("Sent Message");
+    }
 	
 }
