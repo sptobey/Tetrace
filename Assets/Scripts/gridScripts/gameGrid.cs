@@ -18,17 +18,20 @@ public class gameGrid : MonoBehaviour {
 	}
 
 	void Update () {
-
+    
+        /*
 		if(!isChecking) {
 			StartCoroutine(waitCheckWin(checkWinEverySeconds));
 		}
+        */
 
 		// A different way to check wins
 		/*
 		if(Input.GetButtonUp("Fire1")) {
 			gridWinCheck();
 		}
-		*/
+        */
+		
 	}
 
 	public void setGridPiece(Vector3 gridPiecePos, bool isOccupied) {
