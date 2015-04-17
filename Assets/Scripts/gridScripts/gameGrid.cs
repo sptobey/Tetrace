@@ -6,8 +6,6 @@ public class gameGrid : MonoBehaviour {
 
 	private Dictionary<Vector3, bool> gameBoard = new Dictionary<Vector3, bool>();
 	private bool isFilled = false;
-	public float checkWinEverySeconds = 2.0f;
-	private bool isChecking = false;
 	public bool win = false;
 
 	void Start () {
@@ -19,7 +17,18 @@ public class gameGrid : MonoBehaviour {
 
 	void Update () {
     
-        /*
+        /* A messy way to check wins
+         * 
+         * public float checkWinEverySeconds = 2.0f;
+         * private bool isChecking = false;
+         * 
+         * 	IEnumerator waitCheckWin(float waitTtime) {
+		 *		isChecking = true;
+		 *		yield return new WaitForSeconds(waitTtime);
+		 *		gridWinCheck();
+		 *		isChecking = false;
+		 *	}
+         * 
 		if(!isChecking) {
 			StartCoroutine(waitCheckWin(checkWinEverySeconds));
 		}
@@ -73,7 +82,6 @@ public class gameGrid : MonoBehaviour {
 		{
 			GUI.Window(0, new Rect((Screen.width/2)-150, (Screen.height/2)-75
 			                       , 300, 250), ShowGUI, "Level Complete");
-			
 		}
 	}
 	
@@ -88,13 +96,5 @@ public class gameGrid : MonoBehaviour {
 		{
 			Application.LoadLevel (0);
 		}
-	}
-
-	
-	IEnumerator waitCheckWin(float waitTtime) {
-		isChecking = true;
-		yield return new WaitForSeconds(waitTtime);
-		gridWinCheck();
-		isChecking = false;
 	}
 }

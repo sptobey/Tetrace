@@ -10,10 +10,10 @@ public class peiceMove : MonoBehaviour {
     private GameObject grid;
 
 	public float zDragShift = -1.50F;
+	private float waitForCheck = 0.5f;
 
 	void Start() {
         grid = GameObject.Find("grid");
-
 	}
 
 	void Update() {
@@ -48,9 +48,10 @@ public class peiceMove : MonoBehaviour {
     
     IEnumerator SendWinCheck()
     {
-        yield return new WaitForSeconds(1);
-        grid.SendMessage("gridWinCheck");
-        Debug.Log("Sent Message");
+        yield return new WaitForSeconds(waitForCheck);
+		if(grid != null) {
+        	grid.SendMessage("gridWinCheck");
+		}
     }
 	
 }
