@@ -65,6 +65,7 @@ public class gameGrid : MonoBehaviour {
 			Debug.Log("Board is Full.");
 			PlayerPrefs.SetString("Level" + (Application.loadedLevel - 2), "Tetrace");
 			//Application.LoadLevel (Application.loadedLevel + 1);
+            gameObject.SendMessage("getScore");
 			win = true;
 		} else {
 			Debug.Log("Board is NOT Full");
@@ -81,7 +82,7 @@ public class gameGrid : MonoBehaviour {
 		if (win)
 		{
 			GUI.Window(0, new Rect((Screen.width/2)-150, (Screen.height/2)-75
-			                       , 300, 250), ShowGUI, "Level Complete");
+			                       , 300, 250), ShowGUI, "Level Complete \n Score:  " + PlayerPrefs.GetInt("Current Score"));
 		}
 	}
 	
