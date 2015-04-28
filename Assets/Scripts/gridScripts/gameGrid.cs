@@ -40,8 +40,7 @@ public class gameGrid : MonoBehaviour {
 			gridWinCheck();
 		}
         */
-		gridWinCheck ();
-		
+
 	}
 
 	public void setGridPiece(Vector3 gridPiecePos, bool isOccupied) {
