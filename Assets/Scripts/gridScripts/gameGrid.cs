@@ -40,6 +40,7 @@ public class gameGrid : MonoBehaviour {
 			gridWinCheck();
 		}
         */
+		gridWinCheck ();
 		
 	}
 
