@@ -46,6 +46,7 @@ public class gameGrid : MonoBehaviour {
 
 	public void setGridPiece(Vector3 gridPiecePos, bool isOccupied) {
 		gameBoard[gridPiecePos] = isOccupied;
+		gridWinCheck();
 	}
 
 	private void checkGridFilled() {
